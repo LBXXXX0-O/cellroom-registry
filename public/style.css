@@ -1,0 +1,98 @@
+:root {
+  --ok: #16a34a;
+  --warn: #d97706;
+  --full: #dc2626;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(160deg, #e0f2fe, var(--bg));
+  color: var(--text);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px 40px;
+}
+
+.app { width: 100%; max-width: 420px; }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.top h1 { font-size: 20px; font-weight: 700; }
+
+.conn {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: var(--muted);
+}
+.conn.on { background: #dcfce7; color: var(--ok); }
+.conn.off { background: #fee2e2; color: var(--full); }
+
+/* 状态大卡片 */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 8px solid var(--ok);
+  margin-bottom: 20px;
+  transition: border-color .25s ease;
+}
+.status-icon { font-size: 42px; line-height: 1; }
+.status-text { flex: 1; }
+.status-label { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.status-sub { font-size: 13px; color: var(--muted); }
+
+.occupancy { text-align: right; }
+.occupancy-num { font-size: 40px; font-weight: 800; line-height: 1; }
+.occupancy-den { font-size: 16px; color: var(--muted); }
+
+/* 状态配色 */
+.status--idle { border-color: var(--ok); }
+.status--idle .occupancy-num { color: var(--ok); }
+.status--busy { border-color: var(--warn); }
+.status--busy .occupancy-num { color: var(--warn); }
+.status--full { border-color: var(--full); }
+.status--full .occupancy-num { color: var(--full); }
+
+/* 按钮 */
+.actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.btn {
+  border: none;
+  border-radius: 14px;
+  padding: 16px 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  min-height: 84px;
+  transition: transform .08s ease, opacity .2s;
+  line-height: 1.3;
+}
+.btn small { font-weight: 500; font-size: 12px; opacity: .9; }
+.btn:active { transform: scale(.96); }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.btn--enter { background: var(--ok); }
+.btn--exit { background: var(--warn); }
+.btn--reset { background: var(--full); }
+
+.last { text-align: center; font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.hint { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.6; }

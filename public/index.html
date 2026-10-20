@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>细胞间使用登记</title>
+  <meta name="description" content="细胞间实时使用登记，谁在用一眼便知">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>🧫 细胞间使用状态</h1>
+      <span id="conn" class="conn">连接中…</span>
+    </header>
+
+    <!-- 状态大卡片 -->
+    <section id="statusCard" class="card status--idle" aria-live="polite">
+      <div class="status-icon" id="statusIcon">🟢</div>
+      <div class="status-text">
+        <p class="status-label" id="statusLabel">空闲 · 可进入</p>
+        <p class="status-sub" id="statusSub">当前 0 人使用（上限 2 人）</p>
+      </div>
+      <div class="occupancy">
+        <span class="occupancy-num" id="occupiedNum">0</span>
+        <span class="occupancy-den">/ 2</span>
+      </div>
+    </section>
+
+    <!-- 操作按钮 -->
+    <section class="actions">
+      <button id="btnEnter" class="btn btn--enter">我进入<br><small>我来使用（+1）</small></button>
+      <button id="btnExit" class="btn btn--exit">我离开<br><small>我不用了（-1）</small></button>
+      <button id="btnReset" class="btn btn--reset">全部清空<br><small>重置为 0 人</small></button>
+    </section>
+
+    <p class="last" id="lastUpd">—</p>
+
+    <p class="hint">⚠️ 离开时请点一下「我离开」，方便其他同事查看。手机扫码 / 在班级群里发本页面链接即可打开。</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

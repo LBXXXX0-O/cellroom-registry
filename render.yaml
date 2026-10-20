@@ -1,0 +1,10 @@
+# Render 部署配置文件（Render Blueprint）
+# 在 Render 上用 "Blueprint / 从仓库直接创建" 时自动识别，省去手动填构建命令。
+services:
+  - type: web
+    name: cellroom-registry
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
